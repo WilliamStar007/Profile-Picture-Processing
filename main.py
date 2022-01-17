@@ -14,9 +14,9 @@ with Image.open(input("image name: ")) as im:
     draw = ImageDraw.Draw(mask)
     draw.ellipse((0, 0) + (size, size), fill=255)
 
-    arr = np.random.randint(low=90, high=105, size=(size//3, size//3, 3))
-    new_im = Image.fromarray(arr.astype('uint8'))
-    new_im = new_im.resize((size, size))
+    arr = np.random.randint(low=50, high=90, size=(size, size))
+    new_im = Image.fromarray(arr.astype('uint8'), 'L')
+    new_im = new_im.convert('RGB')
     # new_im = Image.new('RGB', (size, size), (105, 105, 105))
 
     new_im.paste(im, (int((size - x) / 2), int((size - y) / 2)))
