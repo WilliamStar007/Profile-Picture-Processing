@@ -1,5 +1,4 @@
 # main.py
-# the imaging process method only works for FACES database images
 
 from PIL import Image, ImageOps, ImageDraw
 import numpy as np
@@ -17,14 +16,16 @@ with Image.open(input("image name: ")) as im:
 
     # generate grey background
     np_data = np.array(im)
-    left = Image.fromarray(np_data[0:y, 0:450])
-    right = Image.fromarray(np_data[0:y, x-400:x])
+    left = Image.fromarray(np_data[0:y, 0:50])
+    right = Image.fromarray(np_data[0:y, x-50:x])
     background = Image.new('RGB', (size, size))
 
     # piece together parts of the image
-    background.paste(left, (0, 0))
-    background.paste(right, (x+250, 0))
-    background.paste(right, (3235, 0))
+    for i in range(0, 9):
+        background.paste(left, (i*50, 0))
+    for i in range(0, 13):
+        background.paste(right, (3150+i*50, 0))
+
     background.paste(im, (int((size - x) / 2), int((size - y) / 2)))
 
     # fit the image for mask
