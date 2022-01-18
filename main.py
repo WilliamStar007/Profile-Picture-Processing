@@ -1,4 +1,6 @@
 # main.py
+# the imaging process method only works for FACES database images
+
 from PIL import Image, ImageOps, ImageDraw
 import numpy as np
 
