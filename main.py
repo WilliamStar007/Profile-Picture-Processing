@@ -3,8 +3,7 @@ from PIL import Image, ImageOps, ImageDraw
 import numpy as np
 
 # open a target image
-image_name = input("image name: ")
-with Image.open(image_name) as im:
+with Image.open(input("image name: ")) as im:
     # current image size
     x, y = im.size
     size = max(x, y)
@@ -16,17 +15,21 @@ with Image.open(image_name) as im:
 
     # generate grey background
     np_data = np.array(im)
-    back_grd_left = Image.fromarray(np_data[0:3543, 0:910])
-    back_grd_right = Image.fromarray(np_data[0:3543, 2430:2835])
-    grey_back_grd = Image.new('RGB', (size, size), (255, 255, 255))
+    left = Image.fromarray(np_data[0:y, 0:450])
+    right = Image.fromarray(np_data[0:y, x-400:x])
+    background = Image.new('RGB', (size, size))
 
-    grey_back_grd.paste(back_grd_left, (0, 0))
-    grey_back_grd.paste(back_grd_right, (2835, 0))
-    grey_back_grd.paste(back_grd_right, (3240, 0))
+    # piece together parts of the image
+    background.paste(left, (0, 0))
+    background.paste(right, (x+250, 0))
+    background.paste(right, (3235, 0))
+    background.paste(im, (int((size - x) / 2), int((size - y) / 2)))
 
-    grey_back_grd.paste(im, (int((size - x) / 2), int((size - y) / 2)))
+    # fit the image for mask
+    output = ImageOps.fit(background, mask.size, centering=(0.5, 0.5))
 
-    output = ImageOps.fit(grey_back_grd, mask.size, centering=(0.5, 0.5))
+    # apply the mask
     output.putalpha(mask)
+    output = output.resize((1181, 1181))
 
     output.save('output.png')
