@@ -1,11 +1,11 @@
 # Profile-Picture-Processing
 Convert pictures from FACES database into circular profile pictures.
 <br></br>
-Example: **3543 x 2835** to **1181 x 1181**
+Example: <br>
 <p>
   <img width="20%" src="https://i.postimg.cc/W3Sf8mdS/target-image-1.jpg" />
   &emsp;&emsp;&emsp; --> &emsp;&emsp;&emsp;
-  <img width="20%" src="https://i.postimg.cc/q7yPsCcZ/output-image-1.png" />
+  <img width="25%" src="https://i.postimg.cc/q7yPsCcZ/output-image-1.png" />
 </p>
 
 ## Dependencies
