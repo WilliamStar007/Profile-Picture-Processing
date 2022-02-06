@@ -4,7 +4,7 @@ from PIL import Image, ImageOps, ImageDraw
 import numpy as np
 
 # open a target image
-with Image.open(input("image name: ")) as im:
+with Image.open(input("image path: ")) as im:
     # current image size
     x, y = im.size
     size = max(x, y)
