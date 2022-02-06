@@ -8,7 +8,7 @@ Example:
   <img width="20%" src="https://i.postimg.cc/q7yPsCcZ/output-image-1.png" />
 </p>
 
-&emsp;&emsp;&emsp; **3543 x 2835** &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; **1181 x 1181**
+&emsp;&emsp; **3543 x 2835** &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; **1181 x 1181**
 
 
 ## Dependencies
