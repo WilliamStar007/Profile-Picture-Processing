@@ -1,11 +1,12 @@
-# main.py
+# profile-picture-processing.py
 
+from os.path import relpath
 from PIL import Image, ImageOps, ImageDraw
 import numpy as np
 
 # open a target image
 image_path = input("image path: ")
-with Image.open(image_path) as im:
+with Image.open(relpath(image_path)) as im:
     # current image size
     x, y = im.size
     size = max(x, y)
