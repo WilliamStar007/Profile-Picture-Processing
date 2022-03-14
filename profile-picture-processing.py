@@ -5,7 +5,7 @@ from PIL import Image, ImageOps, ImageDraw
 import numpy as np
 
 # open a target image
-image_path = input("image path: ")
+image_path = input("image absolute path: ")
 with Image.open(relpath(image_path)) as im:
     # current image size
     x, y = im.size
