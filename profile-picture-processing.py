@@ -4,7 +4,8 @@ from PIL import Image, ImageOps, ImageDraw
 import numpy as np
 
 # open a target image
-with Image.open(input("image path: ")) as im:
+image_path = input("image path: ")
+with Image.open(image_path) as im:
     # current image size
     x, y = im.size
     size = max(x, y)
@@ -35,4 +36,4 @@ with Image.open(input("image path: ")) as im:
     output.putalpha(mask)
     output = output.resize((1181, 1181))
 
-    output.save('output.png')
+    output.save(f'output/{image_path}.png')
