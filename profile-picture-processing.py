@@ -1,12 +1,12 @@
-# profile-picture-processing.py
+# main.py
 
-from os.path import relpath
+from os.path import normpath, basename
 from PIL import Image, ImageOps, ImageDraw
 import numpy as np
 
 # open a target image
-image_path = input("image absolute path: ")
-with Image.open(relpath(image_path)) as im:
+image_name = input("image name: ")
+with Image.open(image_name) as im:
     # current image size
     x, y = im.size
     size = max(x, y)
@@ -37,4 +37,4 @@ with Image.open(relpath(image_path)) as im:
     output.putalpha(mask)
     output = output.resize((1181, 1181))
 
-    output.save(f'output/{image_path}.png')
+    output.save(f'{image_name.replace(".jpg", ".png")}')
