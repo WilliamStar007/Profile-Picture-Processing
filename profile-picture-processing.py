@@ -17,16 +17,17 @@ with Image.open(image_name) as im:
     draw.ellipse((0, 0) + (size, size), fill=255)
 
     # generate grey background
+    strip_size = 40
     np_data = np.array(im)
-    left = Image.fromarray(np_data[0:y, 0:50])
-    right = Image.fromarray(np_data[0:y, x-50:x])
+    left = Image.fromarray(np_data[0:y, 0:strip_size])
+    right = Image.fromarray(np_data[0:y, x-strip_size:x])
     background = Image.new('RGB', (size, size))
 
     # piece together parts of the image
     for i in range(0, 9):
-        background.paste(left, (i*50, 0))
+        background.paste(left, (i*strip_size, 0))
     for i in range(0, 13):
-        background.paste(right, (3150+i*50, 0))
+        background.paste(right, (3150+i*strip_size, 0))
 
     background.paste(im, (int((size - x) / 2), int((size - y) / 2)))
 
