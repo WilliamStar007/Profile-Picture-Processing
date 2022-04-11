@@ -1,4 +1,4 @@
-# main.py
+# profile-picture-processing.py
 
 from os.path import normpath, basename
 from PIL import Image, ImageOps, ImageDraw
